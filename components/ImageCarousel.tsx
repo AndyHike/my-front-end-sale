@@ -39,28 +39,27 @@ export function ImageCarousel({ images, interval = 5000 }: ImageCarouselProps) {
 
   return (
     <div 
-      className="relative w-full rounded-2xl overflow-hidden shadow-xl border border-stone-200 bg-stone-50 group"
+      className="relative w-full aspect-square md:aspect-auto md:h-[600px] rounded-2xl overflow-hidden shadow-xl border border-stone-200 bg-stone-50 group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      <div className="relative w-full flex items-center justify-center">
-        <AnimatePresence mode="wait">
+      <div className="relative w-full h-full flex items-center justify-center p-4">
+        <AnimatePresence>
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: -20, position: 'absolute' }}
             transition={{ duration: 0.3 }}
-            className="w-full flex"
+            className="absolute inset-4 flex items-center justify-center"
           >
             <Image
               src={images[currentIndex]}
               alt={`Mockup slide ${currentIndex + 1}`}
-              width={800}
-              height={1000}
-              className="w-full h-auto object-contain"
+              fill
+              className="object-contain"
               referrerPolicy="no-referrer"
               priority={currentIndex === 0}
             />
