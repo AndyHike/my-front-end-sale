@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Check, ArrowRight, Sparkles, Zap, Settings, LayoutTemplate, Edit3, Image as ImageIcon, Palette, Globe } from 'lucide-react';
 import { FadeIn } from '@/components/FadeIn';
 import { Accordion } from '@/components/Accordion';
+import { ImageCarousel } from '@/components/ImageCarousel';
 import { translations, localizedImages, Language } from '@/lib/i18n';
 
 export default function LandingPage() {
@@ -14,7 +15,7 @@ export default function LandingPage() {
   const imgs = localizedImages[lang];
 
   // Placeholder URL for the iframe demo. Replace with your actual demo URL.
-  const demoIframeUrl = "https://test4.devicehelp.cz/preview";
+  const demoIframeUrl = "https://beauty.devicehelp.cz/preview";
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-stone-900 font-sans selection:bg-stone-200">
@@ -100,27 +101,20 @@ export default function LandingPage() {
                   </div>
                 </div>
               </FadeIn>
-              
+
               <FadeIn delay={0.2} className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-200/50 bg-white aspect-[4/3]">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-200/50 bg-white">
                   <Image
                     src={imgs.heroMockup}
                     alt="SalonWeb Interface Preview"
-                    fill
-                    className="object-cover"
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto"
+                    priority
                     referrerPolicy="no-referrer"
                   />
-                  {/* Floating Admin Panel Mockup */}
-                  <div className="absolute -bottom-6 -left-6 w-2/3 rounded-xl overflow-hidden shadow-xl border border-stone-200/50 bg-white">
-                    <Image
-                      src={imgs.adminMockup}
-                      alt="Admin Panel Preview"
-                      width={800}
-                      height={600}
-                      className="w-full h-auto"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
+                  {/* Floating Admin Panel Mockup - Natural Sizing */}
+
                 </div>
               </FadeIn>
             </div>
@@ -196,15 +190,7 @@ export default function LandingPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2} className="order-1 lg:order-2">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200 bg-stone-50 aspect-square lg:aspect-auto lg:h-[600px]">
-                  <Image
-                    src={imgs.editorMockup}
-                    alt="Editor Interface"
-                    fill
-                    className="object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                <ImageCarousel images={imgs.editorMockups} />
               </FadeIn>
             </div>
           </div>
@@ -222,7 +208,7 @@ export default function LandingPage() {
 
             <div className="grid md:grid-cols-3 gap-8 relative">
               <div className="hidden md:block absolute top-12 left-[20%] right-[20%] h-px bg-stone-800" />
-              
+
               {[
                 { step: '01', title: t.howItWorks.s1Title, desc: t.howItWorks.s1Desc },
                 { step: '02', title: t.howItWorks.s2Title, desc: t.howItWorks.s2Desc },
@@ -289,7 +275,7 @@ export default function LandingPage() {
                 </div>
               </FadeIn>
             </div>
-            
+
             <FadeIn delay={0.3} className="mt-16 text-center">
               <Link href="#vyzkouset" className="inline-flex items-center gap-2 bg-stone-900 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-stone-800 transition-colors">
                 {t.demo.btnLive}
@@ -318,12 +304,13 @@ export default function LandingPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="rounded-3xl overflow-hidden aspect-square relative">
+                <div className="rounded-3xl overflow-hidden relative">
                   <Image
                     src={imgs.audience}
                     alt="Beauty Salon"
-                    fill
-                    className="object-cover"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-auto"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -394,12 +381,12 @@ export default function LandingPage() {
             <FadeIn delay={0.2}>
               <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-stone-200 text-center relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-2 bg-stone-900" />
-                
+
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-700 font-medium text-sm mb-8">
                   <Sparkles className="w-4 h-4" />
                   {t.pricing.badge}
                 </div>
-                
+
                 <div className="flex justify-center items-baseline gap-2 mb-8">
                   <span className="text-6xl font-bold tracking-tight text-stone-900">{t.pricing.price}</span>
                   <span className="text-2xl text-stone-500 font-medium">{t.pricing.period}</span>

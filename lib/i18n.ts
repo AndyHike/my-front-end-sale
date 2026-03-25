@@ -405,21 +405,21 @@ export const translations = {
 // Image dictionary to easily swap localized images based on language
 export const localizedImages = {
   cs: {
-    heroMockup: 'https://picsum.photos/seed/salonweb-cs/1200/900',
-    adminMockup: 'https://picsum.photos/seed/salonadmin-cs/800/600',
-    editorMockup: 'https://picsum.photos/seed/editor-cs/800/1000',
+    heroMockup: '/site.png',
+    adminMockup: '/adminka2.png',
+    editorMockups: ['/adminka3.png', '/adminka4.png', '/adminka5.png'],
     audience: 'https://picsum.photos/seed/audience-cs/1000/1000',
   },
   uk: {
-    heroMockup: 'https://picsum.photos/seed/salonweb-uk/1200/900',
-    adminMockup: 'https://picsum.photos/seed/salonadmin-uk/800/600',
-    editorMockup: 'https://picsum.photos/seed/editor-uk/800/1000',
+    heroMockup: '/site.png',
+    adminMockup: '/adminka.png',
+    editorMockups: ['/adminka.png', '/adminka2.png', '/site.png'],
     audience: 'https://picsum.photos/seed/audience-uk/1000/1000',
   },
   en: {
-    heroMockup: 'https://picsum.photos/seed/salonweb-en/1200/900',
-    adminMockup: 'https://picsum.photos/seed/salonadmin-en/800/600',
-    editorMockup: 'https://picsum.photos/seed/editor-en/800/1000',
+    heroMockup: '/site.png',
+    adminMockup: '/adminka.png',
+    editorMockups: ['/site.png', '/adminka3.png', '/adminka.png'],
     audience: 'https://picsum.photos/seed/audience-en/1000/1000',
   }
 };
